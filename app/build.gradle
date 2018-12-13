@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'jacoco-android'
+apply plugin: 'com.github.triplet.play'
 apply from: 'quality.gradle'
 
 dependencies {
@@ -221,4 +222,11 @@ android {
     }
 
     buildToolsVersion buildToolsVersion
+}
+
+play {
+    track = "alpha"
+    userFraction = 1
+    serviceAccountEmail = System.getenv("SERVICE_ACCOUNT_NAME")
+    serviceAccountCredentials = file("../play.p12")
 }
